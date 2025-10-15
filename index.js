@@ -25,6 +25,7 @@ app.use("/auth", authRouter);
 app.use("/users", usersRouter);
 app.use("/kyc", kycRouter); // NAYI LINE
 app.use("/payment", paymentRouter); // NAYI LINE
+app.use("/instamojo", instamojoRouter); // NAYI LINE
 
 const uri = process.env.MONGO_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });

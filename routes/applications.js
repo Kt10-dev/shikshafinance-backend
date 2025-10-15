@@ -382,4 +382,21 @@ router
     }
   });
 
+router.route("/update-fee-status/:id").patch(auth, async (req, res) => {
+  try {
+    const application = await LoanApplication.findById(req.params.id);
+    if (!application) {
+      return res.status(404).json({ message: "Application not found" });
+    }
+
+    application.registrationFeePaid = true;
+    application.status = "Pending"; // Move to the next stage for admin review
+    await application.save();
+
+    res.json({ success: true, message: "Application status updated." });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Server error." });
+  }
+});
+
 module.exports = router;
