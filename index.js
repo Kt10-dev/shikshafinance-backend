@@ -35,7 +35,7 @@ connection.once("open", () => {
   console.log("✅ MongoDB database connection established successfully!");
 });
 
-// --- YAHAN NAYA CODE ADD KAREIN ---
+const instamojoRouter = require("./routes/instamojo");
 const applicationsRouter = require("./routes/applications"); // Apni route file ko import karein
 
 const server = http.createServer(app);
