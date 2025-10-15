@@ -21,7 +21,15 @@ const { Server } = require("socket.io"); // 2. Naya import
 
 const instamojoRouter = require("./routes/instamojo");
 
-app.use(cors());
+const corsOptions = {
+  origin: [
+    "http://localhost:3000",
+    "https://shikshafinance-frontend.vercel.app",
+  ],
+  methods: "GET,POST,PATCH,DELETE",
+  credentials: true,
+};
+
 app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/users", usersRouter);
