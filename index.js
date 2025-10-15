@@ -53,6 +53,8 @@ io.on("connection", (socket) => {
   });
 });
 
+app.use("/instamojo", instamojoRouter);
+
 app.use((req, res, next) => {
   req.io = io;
   next();
