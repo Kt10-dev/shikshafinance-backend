@@ -19,6 +19,8 @@ const LoanApplication = require("./model/LoanApplication");
 const http = require("http"); // 1. Naya import
 const { Server } = require("socket.io"); // 2. Naya import
 
+const instamojoRouter = require("./routes/instamojo");
+
 app.use(cors());
 app.use(express.json());
 app.use("/auth", authRouter);
@@ -35,7 +37,6 @@ connection.once("open", () => {
   console.log("✅ MongoDB database connection established successfully!");
 });
 
-const instamojoRouter = require("./routes/instamojo");
 const applicationsRouter = require("./routes/applications"); // Apni route file ko import karein
 
 const server = http.createServer(app);
